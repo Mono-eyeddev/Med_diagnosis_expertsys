@@ -12,23 +12,23 @@ class MedicalExpertSystem(KnowledgeEngine):
 
     @Rule(PatientSymptoms(fever='yes', cough='yes', sore_throat='yes'))
     def flu(self):
-        self.diagnosis = "🤒 You might have the **Flu**."
+        self.diagnosis = "You might have the **Flu**."
 
     @Rule(PatientSymptoms(cough='yes', sore_throat='yes', runny_nose='yes'))
     def cold(self):
-        self.diagnosis = "🤧 You might have the **Common Cold**."
+        self.diagnosis = "You might have the **Common Cold**."
 
     @Rule(PatientSymptoms(fever='yes', diarrhea='yes'))
     def gi(self):
-        self.diagnosis = "🤢 You might have a **Gastrointestinal Infection**."
+        self.diagnosis = " You might have a **Gastrointestinal Infection**."
 
     @Rule(PatientSymptoms(fever='yes', headache='yes', fatigue='yes'))
     def malaria(self):
-        self.diagnosis = "🦟 Possible **Malaria**. Get tested."
+        self.diagnosis = " Possible **Malaria**. Get tested."
 
     @Rule(AS.fact << PatientSymptoms())
     def unknown(self, fact):
-        self.diagnosis = "🤷‍♂️ Diagnosis unclear. Please consult a doctor."
+        self.diagnosis = "Diagnosis unclear. Please consult a doctor."
 
 
 # Step 2: Flet UI
@@ -38,7 +38,7 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.START
     page.scroll = "auto"
 
-    title = ft.Text("🧠 MediHelper - Medical Diagnosis", size=24, weight="bold")
+    title = ft.Text("MediHelper - Medical Diagnosis", size=24, weight="bold")
 
     # Inputs
     inputs = {}
